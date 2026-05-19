@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #login-form p { margin-bottom: 1.25rem; }
+        #login-form label { display: block; font-size: 0.875rem; font-weight: 600; color: #8b5cf6; margin-bottom: 0.375rem; }
+        #login-form input { width: 100%; border: 2px solid #ede9fe; border-radius: 0.75rem; padding: 0.625rem 1rem; font-size: 0.875rem; color: #1f2937; background: #f5f3ff; outline: none; transition: all 0.2s; box-sizing: border-box; }
+        #login-form input:focus { border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,0.2); }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-violet-100 via-pink-50 to-orange-100 flex items-center justify-center px-4">
+
+    <div class="w-full max-w-md">
+
+        <div class="text-center mb-8">
+            <p class="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-1">Welcome back</p>
+            <h1 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-pink-600">Login</h1>
+        </div>
+
+        <div class="bg-white border-2 border-violet-200 rounded-2xl p-8 shadow-lg shadow-violet-100">
+            <form method="POST" id="login-form">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button
+                    type="submit"
+                    class="w-full text-sm font-semibold text-white bg-gradient-to-r from-violet-500 to-pink-500 py-3 rounded-xl hover:from-violet-600 hover:to-pink-600 transition shadow-md shadow-violet-200 mt-2"
+                >
+                    🚀 Login
+                </button>
+            </form>
+
+            <p class="text-center text-xs text-gray-400 mt-5">
+                Don't have an account?
+                <a href="/signup/" class="text-violet-500 font-semibold hover:text-pink-500 transition">Sign up</a>
+            </p>
+        </div>
+
+        <p class="text-xs text-violet-300 text-center mt-4">🔒 CSRF protected</p>
+    </div>
+
+</body>
+</html>
